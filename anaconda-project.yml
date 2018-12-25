@@ -1,0 +1,16 @@
+name: jupyterlab-simple-syntax-dev
+
+commands:
+  lab:
+    unix: jupyter lab --no-browser --debug
+  yarn:
+    unix: yarn
+
+env_specs:
+  jupyterlab-simple-syntax-dev:
+    channels:
+      - conda-forge
+      - defaults
+    packages:
+      - jupyterlab >=0.35,<0.36
+      - nodejs >=8.12,<9
