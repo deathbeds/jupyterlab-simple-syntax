@@ -25,6 +25,9 @@
   },
   "types": "lib/index.d.ts",
   "version": "0.1.0",
+  "dependencies": {
+    "codemirror-atom-modes": "^1.1.1"
+  },
   "peerDependencies": {
     "@phosphor/widgets": "^1.6.0",
     "@jupyterlab/rendermime-interfaces": "^1.2.1",
