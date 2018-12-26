@@ -27,12 +27,12 @@ export class SimpleSyntaxRenderer extends Widget
     // first, define the mode, with the canonical `mode` spec
     (CodeMirror as any).defineSimpleMode(mode, states);
 
-    // next, make it accessible to for mime-type style lookups
+    // next, make it accessible to mime-type lookups
     CodeMirror.defineMIME(mime, mode);
 
+    // remove a spec if necessary
     let toRemove: number = null;
     let info;
-    // remove a spec if necessary
     for (let i in CodeMirror.modeInfo) {
       info = CodeMirror.modeInfo[i];
       if (info.mode === mode) {
@@ -44,9 +44,8 @@ export class SimpleSyntaxRenderer extends Widget
     if (toRemove != null) {
       CodeMirror.modeInfo.splice(toRemove, 1);
     }
+
     // finally, add it where meta.js can find it (findByFileType, etc.)
     CodeMirror.modeInfo.push({ ext, mime, mode, name });
-
-    console.log('added', mode);
   }
 }
