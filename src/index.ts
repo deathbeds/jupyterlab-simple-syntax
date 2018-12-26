@@ -1,11 +1,5 @@
-import { Token } from '@phosphor/coreutils';
-
-export const PLUGIN_ID = '@deathbeds/jupyterlab-simple-syntax:plugin';
+export const LABEL = 'Simple Syntax';
+export const NAME = '@deathbeds/jupyterlab-simple-syntax';
+export const PLUGIN_ID = `${NAME}:plugin`;
 export const MIME_TYPE = 'application/vnd.jupyter.simplemode.v1+json';
-
-export interface ISimpleModeManager {}
-
-// tslint:disable-next-line
-export const ISimpleModeManager = new Token<ISimpleModeManager>(
-  '@deathbeds/jupyterlab-fonts:IFontManager'
-);
+export const FILE_TYPE = 'simplemode';

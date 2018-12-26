@@ -1,37 +1,36 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 
-/**
- * A mime renderer factory for data.
- */
-export const rendererFactory: IRenderMime.IRendererFactory = {
-  safe: false,
-  mimeTypes: Object.keys(C.TYPES),
-  createRenderer: options => new RenderedGraphviz(options)
-};
+import { NAME, MIME_TYPE, LABEL, FILE_TYPE } from '.';
+import { SimpleSyntaxRenderer } from './renderer';
 
-const extensions = Object.keys(C.TYPES).map(k => {
-  const name = C.TYPES[k].name;
-  return {
-    id: `@deathbeds/jupyterlab_graphviz:${name}`,
-    name,
-    rendererFactory,
-    rank: 0,
-    dataType: 'string',
+/**
+ * A mime renderer factory for JSON-based syntax highlighting.
+ */
+const extension: IRenderMime.IExtension | IRenderMime.IExtension[] = [
+  {
+    id: `${NAME}:factory`,
+    rendererFactory: {
+      safe: false,
+      mimeTypes: [MIME_TYPE],
+      createRenderer: () => new SimpleSyntaxRenderer()
+    },
+    rank: 99,
+    dataType: 'json',
     fileTypes: [
       {
-        name,
-        extensions: C.TYPES[k].extensions,
-        mimeTypes: [k],
-        iconClass: 'jp-MaterialIcon jp-GraphvizIcon'
+        name: FILE_TYPE,
+        extensions: ['.simplemode', '.simplemode.json'],
+        mimeTypes: [MIME_TYPE],
+        iconClass: 'jp-MaterialIcon'
       }
     ],
     documentWidgetFactoryOptions: {
-      name,
-      primaryFileType: name,
-      fileTypes: [name],
-      defaultFor: [name]
+      name: LABEL,
+      primaryFileType: FILE_TYPE,
+      fileTypes: [FILE_TYPE, 'json'],
+      defaultFor: [FILE_TYPE]
     }
-  } as IRenderMime.IExtension;
-});
+  }
+];
 
-export default extensions;
+export default extension;
