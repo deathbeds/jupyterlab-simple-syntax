@@ -2,6 +2,7 @@
 
 > Simple, customizable syntax highlighting for JupyterLab, powered by
 > [CodeMirror's simplemode](https://codemirror.net/demo/simplemode.html) JSON
+> and [codemirror-atom-modes](https://github.com/patrick-steele-idem/codemirror-atom-modes)
 
 > > This is not meant to be particularly useful yet, but rather is about exploring
 > > data-driven ways to capture syntax highlighting.
@@ -29,6 +30,9 @@ the extension.
   }
 }
 ```
+
+Similarly, any TextMate language JSON file (also used by Sublime Text, Atom, or
+VSCode) can be loaded.
 
 ### As an output
 
