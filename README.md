@@ -1,11 +1,13 @@
 # jupyterlab-simple-syntax
 
+
 > Simple, customizable syntax highlighting for JupyterLab, powered by
 > [CodeMirror's simplemode](https://codemirror.net/demo/simplemode.html) JSON
 > and [codemirror-atom-modes](https://github.com/patrick-steele-idem/codemirror-atom-modes)
 
 > > This is not meant to be particularly useful yet, but rather is about exploring
-> > data-driven ways to capture syntax highlighting.
+> > data-driven ways to capture syntax highlighting. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/deathbeds/jupyterlab-simple-syntax/master?urlpath=lab%2Ftree%2Findex.ipynb)
+
 
 ## Installation
 
