@@ -33,8 +33,7 @@
     "@phosphor/widgets": "^1.6.0",
     "@jupyterlab/rendermime-interfaces": "^1.2.1",
     "@jupyterlab/services": "^3.2.1",
-    "codemirror": "~5.39.0",
-    "cson": "~5.1.0"
+    "codemirror": "~5.39.0"
   },
   "jupyterlab": {
     "mimeExtension": "lib/mimeExtension.js"
@@ -51,7 +50,7 @@
     "@jupyterlab/rendermime-interfaces": "^1.2.1",
     "@types/webpack-env": "~1.13.6",
     "codemirror": "~5.39.0",
-    "cson": "~5.1.0"
+    "season": "^6.0.2"
   },
   "prettier": {
     "arrowParens": "always",
