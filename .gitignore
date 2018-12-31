@@ -2,3 +2,6 @@ node_modules/
 envs/
 lib/
 .ipynb_checkpoints/
+vendor/
+*.egg-info
+__pycache__

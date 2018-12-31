@@ -11,7 +11,9 @@
     "target": "es2015",
     "lib": ["dom", "es2015"],
     "typeRoots": ["./node_modules/@types"],
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "skipLibCheck": true,
+    "types": ["webpack-env", "codemirror"]
   },
   "include": ["src/**/*", "src/@types/**/*"]
 }

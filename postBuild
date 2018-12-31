@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
+set -eux
 jlpm bootstrap
+mkdir -p jupyter_static_syntax/vendor/onigasm/
+cp -r node_modules/onigasm/lib/* jupyter_static_syntax/vendor/onigasm/
+pip -e . --no-deps --ignore-installed --no-cache-dir

@@ -1,1 +1,6 @@
 example-models/
+*.stan
+*.calc
+*.json
+*.cson
+stata-*/

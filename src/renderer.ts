@@ -1,5 +1,4 @@
 // tslint:disable-next-line
-/// <reference path="./@types/codemirror/codemirror.d.ts"/>
 
 // apparently order is important
 import 'codemirror/addon/mode/simple';
@@ -28,13 +27,13 @@ export class SimpleSyntaxRenderer extends Widget
     (CodeMirror as any).defineSimpleMode(mode, states);
 
     // next, make it accessible to mime-type lookups
-    CodeMirror.defineMIME(mime, mode);
+    (CodeMirror as any).defineMIME(mime, mode);
 
     // remove a spec if necessary
     let toRemove: number = null;
     let info;
-    for (let i in CodeMirror.modeInfo) {
-      info = CodeMirror.modeInfo[i];
+    for (let i in (CodeMirror as any).modeInfo) {
+      info = (CodeMirror as any).modeInfo[i];
       if (info.mode === mode) {
         toRemove = +i;
         break;
@@ -42,10 +41,10 @@ export class SimpleSyntaxRenderer extends Widget
     }
 
     if (toRemove != null) {
-      CodeMirror.modeInfo.splice(toRemove, 1);
+      (CodeMirror as any).modeInfo.splice(toRemove, 1);
     }
 
     // finally, add it where meta.js can find it (findByFileType, etc.)
-    CodeMirror.modeInfo.push({ ext, mime, mode, name });
+    (CodeMirror as any).modeInfo.push({ ext, mime, mode, name });
   }
 }
