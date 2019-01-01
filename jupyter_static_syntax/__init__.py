@@ -8,6 +8,6 @@ def load_jupyter_server_extension(app):
     (
         SyntaxServerExtension(app)
         .patch_wasm()
-        .add_vendor_route()
-        .warn("jupyter syntax activated")
+        .add_routes()
+        .log.warn("jupyter syntax activated")
     )

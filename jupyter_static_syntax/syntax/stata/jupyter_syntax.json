@@ -1,0 +1,22 @@
+{
+  "schema_version": "1",
+  "upstreams": [
+    {
+      "repository": "https://github.com/kylebarron/language-stata",
+      "license": "MIT"
+    }
+  ],
+  "textmate_languages": [
+    {
+      "scope_name": "source.stata",
+      "codemirror_mode": "stata",
+      "mimetypes": [
+        "text/x-stata"
+      ],
+      "path": "stata/stata.tmlanguage.json",
+      "required_scopes": [
+        "source.sql"
+      ]
+    }
+  ]
+}

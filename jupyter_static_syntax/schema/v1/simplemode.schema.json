@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "meta": {
+      "$ref": "#/definitions/meta"
+    },
+    "patternProperties": {
+      ".*": {
+        "$ref": "#/definitions/state"
+      }
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/state"
+  },
+  "definitions": {
+    "state": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/rule"
+      }
+    },
+    "rule": {
+      "type": "object",
+      "required": [
+        "regex"
+      ],
+      "properties": {
+        "regex": {
+          "type": "string"
+        },
+        "token": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sol": {
+          "type": "boolean"
+        },
+        "next": {
+          "type": "string"
+        },
+        "push": {
+          "type": "string"
+        },
+        "pop": {
+          "type": "boolean"
+        },
+        "mode": {
+          "type": "object",
+          "required": [
+            "spec"
+          ],
+          "properties": {
+            "spec": {
+              "type": "string"
+            },
+            "end": {
+              "type": "string"
+            },
+            "persistent": {
+              "type": "boolean"
+            }
+          }
+        },
+        "indent": {
+          "type": "boolean"
+        },
+        "dedent": {
+          "type": "boolean"
+        },
+        "dedentIfLineStart": {
+          "type": "boolean"
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "dontIndentStates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

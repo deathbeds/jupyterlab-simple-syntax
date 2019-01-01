@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1"]
+    },
+    "textmate_languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/textmate-language"
+      }
+    },
+    "upstreams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/upstream"
+      }
+    }
+  },
+  "definitions": {
+    "upstream": {
+      "type": "object",
+      "properties": {
+        "repository": {"type": "string"},
+        "license": {"type": "string"}
+      }
+    },
+    "textmate-language": {
+      "type": "object",
+      "required": [
+        "scope_name",
+        "codemirror_mode",
+        "mimetypes",
+        "path"
+      ],
+      "properties": {
+        "scope_name": {"type": "string"},
+        "codemirror_mode": {"type": "string"},
+        "mimetypes": {"type": "array", "items": {"type": "string"}},
+        "path": {"type": "string"},
+        "required_scopes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

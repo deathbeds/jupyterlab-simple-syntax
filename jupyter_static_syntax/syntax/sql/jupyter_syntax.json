@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "upstreams": [
+    {
+      "repository": "https://github.com/atom/language-sql",
+      "license": "MIT"
+    },
+    {
+      "repository": "https://github.com/textmate/sql.tmbundle",
+      "license": "OTHER"
+    }
+  ],
+  "textmate_languages": [
+    {
+      "scope_name": "source.sql",
+      "codemirror_mode": "sql",
+      "mimetypes": [
+        "application/sql"
+      ],
+      "path": "sql/sql.tmlanguage.json"
+    }
+  ]
+}
