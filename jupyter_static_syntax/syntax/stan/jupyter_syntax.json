@@ -1,0 +1,20 @@
+{
+  "schema_version": "1",
+  "upstreams": [
+    {
+      "repository": "https://github.com/jrnold/atom-language-stan",
+      "license": "MIT"
+    }
+  ],
+  "modes": {
+    "stan": {
+      "name": "stan",
+      "displayName": "Stan File",
+      "scopeName": "source.stan",
+      "extensions": [".stan", ".stanfuncs"],
+      "type": "tmlanguage",
+      "mimeTypes": ["text/x-stan"],
+      "path": "stan/stan.tmlanguage.json"
+    }
+  }
+}

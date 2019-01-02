@@ -10,14 +10,24 @@
       "license": "OTHER"
     }
   ],
-  "textmate_languages": [
-    {
-      "scope_name": "source.sql",
-      "codemirror_mode": "sql",
-      "mimetypes": [
-        "application/sql"
+  "modes": {
+    "sql": {
+      "name": "sql",
+      "displayName": "SQL File",
+      "scopeName": "source.sql",
+      "mimeTypes": ["application/sql"],
+      "extensions": [
+        ".ddl",
+        ".dml",
+        ".dsql",
+        ".hql",
+        ".pgsql",
+        ".psql",
+        ".q",
+        ".sql"
       ],
+      "type": "tmlanguage",
       "path": "sql/sql.tmlanguage.json"
     }
-  ]
+  }
 }

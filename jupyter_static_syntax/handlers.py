@@ -12,5 +12,4 @@ class SyntaxListHandler(APIHandler):
     @web.authenticated
     @gen.coroutine
     def get(self):
-        self.finish(
-            json.dumps(self.manager.grammars(), indent=2, sort_keys=True))
+        self.finish(json.dumps(self.manager.modes(), indent=2, sort_keys=True))

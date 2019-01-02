@@ -40,18 +40,17 @@ class SyntaxServerExtension(LoggingConfigurable):
         app.add_handlers(
             ".*$",
             [
+                (ns + "/", SyntaxListHandler, dict(manager=self.manager)),
                 (
-                    ns + "/", SyntaxListHandler,
-                    dict(manager=self.manager)
-                ),
-                (
-                    ujoin(ns, "vendor", "(.*)"), FileFindHandler,
+                    ujoin(ns, "vendor", "(.*)"),
+                    FileFindHandler,
                     dict(path=str(HERE / "vendor")),
                 ),
                 (
-                    ujoin(ns, "(.*)"), FileFindHandler,
+                    ujoin(ns, "(.*)"),
+                    FileFindHandler,
                     dict(path=[str(p) for p in syntax_roots()]),
-                )
+                ),
             ],
         )
         self.log.info(f"syntax paths are available")

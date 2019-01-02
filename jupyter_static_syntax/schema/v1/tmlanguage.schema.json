@@ -5,11 +5,11 @@
   "definitions": {
     "root": {
       "allOf": [
-        { "$ref": "#/definitions/grammar" },
+        {"$ref": "#/definitions/grammar"},
         {
           "type": "object",
           "properties": {
-            "name": { "type": "string" },
+            "name": {"type": "string"},
             "scopeName": {
               "description": "this should be a unique name for the grammar, following the convention of being a dot-separated name where each new (left-most) part specializes the name. Normally it would be a two-part name where the first is either text or source and the second is the name of the language or document type. But if you are specializing an existing type, you probably want to derive the name from the type you are specializing. For example Markdown is text.html.markdown and Ruby on Rails (rhtml files) is text.html.rails. The advantage of deriving it from (in this case) text.html is that everything which works in the text.html scope will also work in the text.html.«something» scope (but with a lower precedence than something specifically targeting text.html.«something»).",
               "type": "string",
@@ -26,10 +26,10 @@
             "fileTypes": {
               "description": "this is an array of file type extensions that the grammar should (by default) be used with. This is referenced when TextMate does not know what grammar to use for a file the user opens. If however the user selects a grammar from the language pop-up in the status bar, TextMate will remember that choice.",
               "type": "array",
-              "items": { "type": "string" }
+              "items": {"type": "string"}
             },
-            "uuid": { "type": "string" },
-            "firstLineMatch": { "type": "string" }
+            "uuid": {"type": "string"},
+            "firstLineMatch": {"type": "string"}
           },
           "required": ["scopeName"]
         }
@@ -37,26 +37,24 @@
     },
     "grammar": {
       "type": "object",
-        "properties": {
-          "patterns": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/pattern" },
-            "default": [ ]
-          },
-          "repository": {
-            "description": "a dictionary (i.e. key/value pairs) of rules which can be included from other places in the grammar. The key is the name of the rule and the value is the actual rule. Further explanation (and example) follow with the description of the include rule key.",
-            "type": "object",
-            "additionalProperties": {
-              "anyOf": [
-                {"$ref": "#/definitions/grammar"},
-                {"$ref": "#/definitions/pattern"}
-              ]
-            }
-          }
+      "properties": {
+        "patterns": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/pattern"},
+          "default": []
         },
-        "required": [
-          "patterns"
-        ]
+        "repository": {
+          "description": "a dictionary (i.e. key/value pairs) of rules which can be included from other places in the grammar. The key is the name of the rule and the value is the actual rule. Further explanation (and example) follow with the description of the include rule key.",
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {"$ref": "#/definitions/grammar"},
+              {"$ref": "#/definitions/pattern"}
+            ]
+          }
+        }
+      },
+      "required": ["patterns"]
     },
     "captures": {
       "type": "object",
@@ -64,12 +62,12 @@
         "^[0-9]+$": {
           "type": "object",
           "properties": {
-            "name": { "$ref": "#/definitions/name" },
+            "name": {"$ref": "#/definitions/name"},
             "comment": {"type": "string"},
             "patterns": {
               "type": "array",
-              "items": { "$ref": "#/definitions/pattern" },
-              "default": [ ]
+              "items": {"$ref": "#/definitions/pattern"},
+              "default": []
             }
           },
           "additionalProperties": false
@@ -80,8 +78,8 @@
     "pattern": {
       "type": "object",
       "properties": {
-        "comment": { "type": "string" },
-        "disabled": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "comment": {"type": "string"},
+        "disabled": {"type": "integer", "minimum": 0, "maximum": 1},
         "include": {
           "description": "this allows you to reference a different language, recursively reference the grammar itself or a rule declared in this file’s repository.",
           "type": "string"
@@ -121,17 +119,17 @@
         "patterns": {
           "description": "applies to the region between the begin and end matches",
           "type": "array",
-          "items": { "$ref": "#/definitions/pattern" },
-          "default": [ ]
+          "items": {"$ref": "#/definitions/pattern"},
+          "default": []
         }
       },
       "dependencies": {
         "begin": ["end"],
         "end": ["begin"],
-        "contentName": ["begin","end"],
-        "beginCaptures": ["begin","end"],
-        "endCaptures": ["begin","end"],
-        "patterns": ["begin","end"]
+        "contentName": ["begin", "end"],
+        "beginCaptures": ["begin", "end"],
+        "endCaptures": ["begin", "end"],
+        "patterns": ["begin", "end"]
       }
     },
     "name": {

@@ -22,9 +22,7 @@
     },
     "rule": {
       "type": "object",
-      "required": [
-        "regex"
-      ],
+      "required": ["regex"],
       "properties": {
         "regex": {
           "type": "string"
@@ -66,9 +64,7 @@
         },
         "mode": {
           "type": "object",
-          "required": [
-            "spec"
-          ],
+          "required": ["spec"],
           "properties": {
             "spec": {
               "type": "string"

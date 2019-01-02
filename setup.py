@@ -13,7 +13,7 @@ setup_args = dict(
     name=name,
     version=__version__,
     description="Serve TextMate (Atom, VSCode) Syntax Highlighting and support"
-                " in Jupyter",
+    " in Jupyter",
     url="http://github.com/deathbeds/jupyterlab-simple-syntax",
     author="Dead Pixel Collective",
     license="BSD-3-Clause",

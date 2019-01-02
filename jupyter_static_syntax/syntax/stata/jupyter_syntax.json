@@ -6,17 +6,16 @@
       "license": "MIT"
     }
   ],
-  "textmate_languages": [
-    {
-      "scope_name": "source.stata",
-      "codemirror_mode": "stata",
-      "mimetypes": [
-        "text/x-stata"
-      ],
+  "modes": {
+    "stata": {
+      "name": "stata",
+      "displayName": "Stata File",
+      "scopeName": "source.stata",
+      "extensions": [".do", ".ado", ".mata"],
+      "type": "tmlanguage",
+      "mimeTypes": ["text/x-stata"],
       "path": "stata/stata.tmlanguage.json",
-      "required_scopes": [
-        "source.sql"
-      ]
+      "requiredScopes": ["source.sql"]
     }
-  ]
+  }
 }

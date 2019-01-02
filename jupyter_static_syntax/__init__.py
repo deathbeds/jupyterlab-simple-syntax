@@ -1,4 +1,3 @@
-
 from ._version import __version__  # noqa
 
 from .serverextension import SyntaxServerExtension

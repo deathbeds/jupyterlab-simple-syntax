@@ -1,17 +1,15 @@
 {
   "type": "object",
-  "required": [
-    "schema_version"
-  ],
+  "required": ["schema_version", "modes"],
   "properties": {
     "schema_version": {
       "type": "string",
       "enum": ["1"]
     },
-    "textmate_languages": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/textmate-language"
+    "modes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/mode"
       }
     },
     "upstreams": {
@@ -29,20 +27,45 @@
         "license": {"type": "string"}
       }
     },
-    "textmate-language": {
+    "mode": {
+      "allOf": [
+        {"$ref": "#/definitions/mode-common"},
+        {
+          "oneOf": [
+            {"$ref": "#/definitions/mode-tmlanguage"},
+            {"$ref": "#/definitions/mode-simplemode"}
+          ]
+        }
+      ]
+    },
+    "mode-common": {
       "type": "object",
-      "required": [
-        "scope_name",
-        "codemirror_mode",
-        "mimetypes",
-        "path"
-      ],
+      "required": ["mimeTypes", "path", "type"],
+      "properties": {
+        "mimeTypes": {"type": "array", "items": {"type": "string"}},
+        "path": {"type": "string"},
+        "type": {"type": "string"},
+        "name": {"type": "string"},
+        "displayName": {"type": "string"},
+        "pattern": {"type": "string"},
+        "contentType": {"type": "string"},
+        "fileFormat": {"type": "string"}
+      }
+    },
+    "mode-tmlanguage": {
+      "type": "object",
+      "required": ["scopeName", "type"],
       "properties": {
         "scope_name": {"type": "string"},
-        "codemirror_mode": {"type": "string"},
-        "mimetypes": {"type": "array", "items": {"type": "string"}},
-        "path": {"type": "string"},
-        "required_scopes": {"type": "array", "items": {"type": "string"}}
+        "requiredScopes": {"type": "array", "items": {"type": "string"}},
+        "type": {"type": "string", "enum": ["tmlanguage"]}
+      }
+    },
+    "mode-simplemode": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "enum": ["simplemode"]}
       }
     }
   }
